@@ -1,0 +1,2 @@
+def display_board(input_list = ['_', '_', '_', '_', '_', '_', '_', '_', '_']):
+    print('| {0} | {1} | {2} |\n| {3} | {4} | {5} |\n| {6} | {7} | {8} |'.format(input_list[0], input_list[1], input_list[2], input_list[3],input_list[4],input_list[5],input_list[6],input_list[7],input_list[8]))
