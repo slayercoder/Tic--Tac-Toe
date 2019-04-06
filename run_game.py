@@ -1,28 +1,34 @@
 from display_board import display_board
 from first_chance import first_chance
+from make_move import make_move
 # from check_existing_position import check_existing_position
-# from check_win import check_win
+from check_win import check_win
 def run_game(player1_choice, player2_choice):
     board_data = ['_', '_', '_', '_', '_', '_', '_', '_', '_']
-    # board_filled = 0
-    board_position_filled = []
-    first_turn = first_chance()
+    # positions_filled = [0]
+    # board_position_filed = []
+    winner = ''
+    current_player = first_chance()
+    current_player_choice = player1_choice if current_player == 'Player 1' else player2_choice
     while True:
-        print('Player 1 chance')
-        # ask the player to select location and symbol to fill and take input
-        location_p1 = int(input('Player 1 Enter location on board '))
-        player_1_data = (player1_choice, location_p1)
+        current_player_choice, locations_filled = make_move(current_player, board_data, current_player_choice)
+        display_board(board_data)
 
-        # check whether location to fill exists from previous step
-        has_location = not board_data[location_p1 - 1] == ('X' or 'O')
-        
-        # if location exists take the input position and insert in the board data
-        if has_location:
-            board_data[location_p1 - 1] = player1_choice
-            
-        # after this check if the user has won, if yes break out and print result else continue 
-
-
+        if locations_filled == 9:
+            print('Math is drawn !!')
+            break
+        # after this, check if the user has won, if yes break out and print result else continue        
+        if check_win(board_data, current_player_choice):
+            winner = current_player
+            break
+        else:
+            # toggle player
+            current_player = "Player 2" if current_player == 'Player 1' else "Player 1"
+            current_player_choice = player1_choice if current_player == 'Player 1' else player2_choice
+            continue
+    if winner:
+        return winner
+    
 
 
 
