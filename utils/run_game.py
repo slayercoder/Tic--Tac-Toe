@@ -28,37 +28,3 @@ def run_game(player1_choice, player2_choice):
             continue
     if match_status:
         return match_status
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #     print('Player 1 chance \n')
-    #     board_position_p1 = int(input('Enter board position: '))
-    #     # check_existing_position(board_position_p1, board_position_filled)
-    #     while board_position_p1 in board_position_filled:
-
-    #     board_data[board_position_p1 - 1] = player1_choice
-    #     display_board(board_data)
-    #     check_win(board_data, player1_choice)
-    #     print('Player 2 chance \n')
-    #     board_position_p2 = int(input('Enter board position: '))
-    #     board_data[board_position_p2 - 1] = player2_choice
-    #     display_board(board_data)
-    #     check_win(board_data, player2_choice)
-
